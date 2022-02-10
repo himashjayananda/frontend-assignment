@@ -1,0 +1,14 @@
+.sidebar-wrapper {
+  position: fixed;
+  width: 240px;
+  height: 100vh;
+  background-color: #24a19c;
+  padding: 20px;
+
+  .btn-load-launches {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: calc(100% - 40px);
+  }
+}
