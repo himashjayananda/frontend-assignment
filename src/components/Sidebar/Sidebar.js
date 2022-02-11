@@ -1,16 +1,31 @@
 import { memo } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
+import LaunchLink from "./LaunchLink/LaunchLink";
 import "./Sidebar.scss";
 
-const Sidebar = ({ launches, offset, setOffset }) => {
-  console.log(launches);
+const Sidebar = ({ loading, launches, offset, setOffset }) => {
   return (
     <div className="sidebar-wrapper">
+      <div className="launches-links-wrapper">
+        {launches.length
+          ? launches.map(launch => (
+              <LaunchLink launch={launch} key={launch.id} />
+            ))
+          : ""}
+      </div>
+
       <Button
         className="btn-load-launches"
-        onClick={() => setOffset(offset + 10)}
+        onClick={() => !loading && setOffset(offset + 10)}
+        variant="dark"
       >
-        Load 10 more
+        {!loading ? (
+          "Load 10 more"
+        ) : (
+          <Spinner animation="border" size="sm">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        )}
       </Button>
     </div>
   );

@@ -1,14 +1,21 @@
 .sidebar-wrapper {
   position: fixed;
-  width: 240px;
+  width: 320px;
   height: 100vh;
-  background-color: #24a19c;
+  background-color: #f3f4f6;
   padding: 20px;
+  overflow: auto;
+  scroll-padding-bottom: 50px;
+
+  .launches-links-wrapper {
+    height: calc(100% - 60px);
+    overflow: auto;
+  }
 
   .btn-load-launches {
-    position: absolute;
+    position: fixed;
     left: 20px;
     bottom: 20px;
-    width: calc(100% - 40px);
+    width: 280px;
   }
 }
